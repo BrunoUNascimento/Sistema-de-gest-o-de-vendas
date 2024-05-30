@@ -15,6 +15,7 @@ import java.awt.event.ComponentEvent;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
     TelaProduto telaproduto = new TelaProduto();
+    TelaCliente teleCliente = new TelaCliente();
     /**
      * Creates new form TelaPrincipal
      */
@@ -29,6 +30,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 super.componentResized(e);
                 // Ajusta o tamanho do JInternalFrame para coincidir com o tamanho do JDesktopPane
                 telaproduto.setSize(desktop.getSize());
+            }
+        });
+        desktop.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                super.componentResized(e);
+                // Ajusta o tamanho do JInternalFrame para coincidir com o tamanho do JDesktopPane
+                teleCliente.setSize(desktop.getSize());
             }
         });
         
@@ -50,6 +59,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menu = new javax.swing.JMenu();
         menProduto = new javax.swing.JMenuItem();
+        menClientes = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -95,6 +105,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menu.add(menProduto);
 
+        menClientes.setText("Clientes");
+        menClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menClientesActionPerformed(evt);
+            }
+        });
+        menu.add(menClientes);
+
         jMenuBar1.add(menu);
 
         jMenu2.setText("Edit");
@@ -124,6 +142,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaproduto.setVisible(true);
         desktop.add(telaproduto);
     }//GEN-LAST:event_menProdutoActionPerformed
+
+    private void menClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menClientesActionPerformed
+     teleCliente.setVisible(true);
+     desktop.add(teleCliente);
+    }//GEN-LAST:event_menClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +189,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem menClientes;
     private javax.swing.JMenuItem menProduto;
     private javax.swing.JMenu menu;
     // End of variables declaration//GEN-END:variables
